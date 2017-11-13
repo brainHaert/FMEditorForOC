@@ -7,7 +7,7 @@
 ####但是相比一般的框架或demo，已经很强大了！
 
 先上图<br>
-![](https://raw.githubusercontent.com/brainHaert/FMEditor/master/showgif.gif)
+![](https://github.com/brainHaert/FMEditorForOC/blob/master/showgif.gif)
 
 ###主要看`XZPost`文件夹里面的文件。
 
