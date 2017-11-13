@@ -1,0 +1,265 @@
+
+//  PrefixHeader.pch
+//  FMB
+//
+//  Created by jason on 15/11/13.
+//  Copyright (c) 2015年 ICompany. All rights reserved.
+//
+
+#ifndef FMB_PrefixHeader_pch
+#define FMB_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//#define Server @"http://fmb.fmsecret.cn/fmb-openapi-server/rest/"//正式的1
+//#define Server @"http://120.55.115.30:8080/fmb-openapi-server/rest/"//正式的2
+#define Server @"http://121.41.117.81:8080/fmb-openapi-server/rest/"//开发的
+//#define Server @"http://192.168.1.169:8080/fmb-openapi-server/rest/"//开发的(阿峰)
+//#define Server @"http://t.fmsecret.cn/fmb-openapi-server/rest/"//测试的
+
+
+//UI
+#define FMGetMaxX(view) CGRectGetMaxX(view.frame)
+#define FMGetMaxY(view) CGRectGetMaxY(view.frame)
+#define Auto(x) (x*SCREEN_WIDTH/414.0f)
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define FMCustomYellew [UIColor colorWithRed:252/255.0 green:190/255.0 blue:0 alpha:1]
+//获取版本号
+#define GetMyVersion ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"])
+//System Version
+#define GetSystemVersion [[UIDevice currentDevice] systemVersion]
+
+#define GETTOKEN ([[NSUserDefaults standardUserDefaults] objectForKey:@"token"])///用户token
+#define GETUID ([[NSUserDefaults standardUserDefaults] objectForKey:@"ID"])//用户id
+#define GETHEAD ([[NSUserDefaults standardUserDefaults] objectForKey:@"head_pic"])//头像链接
+#define GETACCOUNT ([[NSUserDefaults standardUserDefaults] objectForKey:@"account"])//账号
+#define NickName @"nick_name"//昵称
+#define GETNICKNAME ([[NSUserDefaults standardUserDefaults] objectForKey:NickName])//昵称
+#define GETADDRESS ([[NSUserDefaults standardUserDefaults] objectForKey:@"ADDRESS"])//选择地址的数组
+#define IsFirstCome ([[NSUserDefaults standardUserDefaults]boolForKey:@"isFirstCome"])//是否新用户
+#define ISFirstToPost ([[NSUserDefaults standardUserDefaults]boolForKey:@"ISFirstToPost"])//是否新进发布
+#define ISFirstToPost2 ([[NSUserDefaults standardUserDefaults]boolForKey:@"ISFirstToPost2"])//是否新进发布2
+#define ISFirstToBook ([[NSUserDefaults standardUserDefaults]boolForKey:@"ISFirstToBook"])//是否新进用户账单
+#define ISFirstToComment ([[NSUserDefaults standardUserDefaults]boolForKey:@"ISFirstToComment"])//是否新进用户账单
+
+
+#define GETUSERTAGFLAG ([[NSUserDefaults standardUserDefaults]integerForKey:@"tag_flag"])//是否有设置过投资类型
+
+#define AdvertKey @"adverKey"//广告数组的key
+#define BillArrKey @"billArr"//账单数组的key
+#define BillInfo @"billInfo"//账单用户资料的key
+#define ENCRYPT_KEY @"0987654321qwertyuioplkjh"
+#define GET3DESTOKEN [NSString TripleDES:[NSString stringWithFormat:@"%@&%@",GETTOKEN,GETUID] encryptOrDecrypt:kCCEncrypt withKey:ENCRYPT_KEY]
+#define ENCRYPT_KEY_bank @"9526gdgydxtxgc2010tx3b2131423523423412342"
+//RGB颜色
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+//设备
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+#define iOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+#define iOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+#define iOS9 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+
+//判断是否null
+#define Object_is_null(X)  (([[NSString stringWithFormat:@"%@",X]isEqualToString:@"<null>"])||([[NSString stringWithFormat:@"%s",object_getClassName(X)]isEqualToString:@"__NSCFConstantString"])||([[NSString stringWithFormat:@"%@",X]isEqualToString:@"(null)"]))
+
+//强制更新功能
+#define check_update @"app/check_update"
+//新特性图
+#define start_pic @"app/start_pic"
+//用户
+#define Login @"user/login"
+#define Check_account @"user/check_account"
+#define Register @"user/register"
+#define Logout @"user/logout"
+#define Update_password @"user/update_password"
+#define Send_verify_code @"user/send_verify_code"//重置密码获取验证码接口
+#define set_details @"user/set_details"//修改昵称或头像
+#define user_file_upload @"user/file_upload"//上传图片
+#define user_tag_list @"user/tag_list"//获取用户感兴趣晒单标签
+#define user_interest_tag @"user/interest_tag"//设置（修改）感兴趣晒单标签
+#define FMUser_Account @"user/user_account"//用户资产
+
+
+//这三个废弃
+#define Get_luck_mon_list  @"welfare/get_luck_mon_list"
+#define Get_use_mon_list  @"welfare/get_use_mon_list"
+#define bind_official_luckmon  @"welfare/bind_official_luckmon"
+
+
+//我的红包
+#define My_coupons  @"welfare/my_coupons"
+#define Order_coupons  @"welfare/order_coupons"
+#define Discount_code  @"welfare/discount_code"
+
+
+//订单管理
+#define New_order  @"order/new_order"
+#define List_order  @"order/list_order"
+#define Get_order  @"order/get_order"
+#define Delete_order  @"order/delete_order"
+
+
+//购物车
+#define Add_cart  @"cart/add_cart"
+#define Cart_count  @"cart/cart_count"
+#define View_cart  @"cart/view_cart"
+#define Delete_cart  @"cart/delete_cart"
+
+
+
+//收货人信息
+#define All_area  @"consignee/all_area"
+#define New_consignee  @"consignee/new_consignee"
+#define List_consignee  @"consignee/list_consignee"
+#define Delete_consignee  @"consignee/delete_consignee"
+
+//银行卡
+#define Get_bank_card_list  @"fmpay/get_bank_card_list"
+#define Find_bank_card_info  @"fmpay/find_bank_card_info"
+#define Bind_bank_card  @"fmpay/bind_bank_card"
+#define Confirm_bind_bank_card  @"fmpay/confirm_bind_bank_card"
+#define Get_validate_code  @"fmpay/get_validate_code"
+#define Recharge_request  @"fmpay/recharge_request"
+#define Confirm_pay  @"fmpay/confirm_pay"//确认支付/充值
+
+//充值
+#define Deposit_order @"deposit/deposit_order"
+#define Get_deposit @"deposit/get_deposit"
+#define List_deposit @"deposit/list_deposit"
+#define Query_order @"fmpay/query_order"
+
+//提现
+#define Withdraw_order @"withdraw/withdraw_order"
+#define Get_withdraw @"withdraw/get_withdraw"
+#define List_withdraw @"withdraw/list_withdraw"
+#define Withdraw @"fmpay/withdraw"
+
+
+#define GETphone ([[NSUserDefaults standardUserDefaults] objectForKey:@"phone"])
+#define GETcreditCard ([[NSUserDefaults standardUserDefaults] objectForKey:@"creditCard"])
+
+//产品
+#define Product_type @"product/product_type"
+#define Product_brand @"product/product_brand"
+#define List_product @"product/list_product"
+#define Product_details @"product/product_details"
+#define Introduce_pic @"product/introduce_pic"
+#define Add_comment @"product/add_comment"
+#define List_comment @"product/list_comment"
+#define My_collect @"product/my_collect"
+#define Collect_product @"product/collect_product"
+#define Faq @"product/faq"
+#define Cancel_collect @"product/cancel_collect"
+#define Introduce_text @"product/introduce_text"
+
+//广告
+#define get_banner_list @"banner/get_banner_list"
+
+//账单
+#define list_tag @"bill/list_tag"//标签
+#define save_bill @"bill/save_bill_v4"//发布账单
+#define user_bill_list @"bill/user_bill_list"//用户账单列表
+#define user_bill_info @"bill/user_bill_info_v2"//用户账单信息
+#define delete_bill @"bill/delete_bill"//删除账单
+#define modify_bill @"bill/modify_bill"//修改账单
+#define file_upload @"bill/file_upload"//上传图片
+#define extract_money @"bill/extract_money"//领取红包
+#define user_wallet @"bill/user_wallet"//查看红包记录
+#define transter_balance @"bill/transter_balance"//一键转余额
+#define bill_list @"bill/bill_list"//广场账单列表
+
+#define interest_balance @"bill/interest_balance"//记账获息转余额
+#define paster_type @"bill/paster_type"//获取贴纸分类
+#define paster_list @"bill/paster_list"//获取贴纸列表（各分类里的）
+#define add_comment_bill @"bill/add_comment"//发评论
+#define comment_list @"bill/comment_list"//账单的评论列表
+#define FMMessage_Count @"message/new_notice_count"   /// 消息总数
+#define All_new_count @"message/all_new_count"//广场消息总数
+
+#define FMMine_bill_praise @"bill/mine_bill_praise"   /// 我新的赞
+#define FMMine_bill_comment @"bill/mine_bill_comment"   /// 我新的评论
+
+/******************** 以下为最新版接口 ********************/
+
+#define FMMine_bill_comment_v2 @"bill/mine_bill_comment_v2"   /// 我新的评论
+
+// 帖子详情
+#define add_bill_collect @"bill/add_bill_collect"//添加收藏
+#define delete_bill_collect @"bill/delete_bill_collect"//取消收藏
+#define praise_bill @"bill/praise_bill"//点赞
+
+#define FMBill_get_attention_fans @"bill/get_attention_fans"   /// 我关注的和我的粉丝
+#define FMBill_add_user_attention @"bill/add_user_attention"   /// 请求关注粉丝
+#define FMBill_delete_user_attention @"bill/delete_user_attention"   /// 请求取消关注粉丝
+
+#define mine_bill_collect @"bill/mine_bill_collect" //我收藏账单列表
+
+// 疯蜜范
+#define FMBill_bill_list @"bill/bill_list" /// 广场账单列表
+#define FMBill_list_tag_v2 @"bill/list_tag_v2"  /// 分类列表
+#define FMBill_view_user_bill @"bill/view_user_bill"  /// 查看帖子
+#define FMBill_get_top_tag_bill_list @"bill/get_top_tag_bill_list"  /// 查看所有帖子分类
+#define FMBill_get_user_main_page_info @"bill/get_user_main_page_info"  /// 用户主页用户信息
+#define FMBill_add_comment_v2 @"bill/add_comment_v2"  /// 上传评论
+#define FMBill_comment_list_v2 @"bill/comment_list_v2"  /// 获取评论
+#define FMBill_get_user_bill_list @"bill/get_user_bill_list"  /// 用户主页帖子
+
+
+// 保险
+#define FMInsure_list @"insure/insure_list"  /// 保险列表
+#define FMInsure_details @"insure/insure_details"  /// 保险详情
+#define FMInsure_new_insureBill @"insureBill/new_insureBill"  /// 保险订单生成请求请求
+#define FMInsure_get_insureBill_info @"insureBill/get_insureBill_info"  /// 保险订单详情
+#define FMInsure_get_insureBill_list @"insureBill/get_insureBill_list"  /// 保险订单列表
+#define FMInsure_find_applicant_info @"insureBill/find_applicant_info"  /// 投保人与被保人信息
+
+// 理财
+#define FMFinance_type_list @"finance/type_list"  /// 理财分类
+#define FMFinance_goods_list @"finance/goods_list"  /// 理财产品
+#define FMFinance_product_list @"finance/product_list"  /// 可兑换商品列表
+#define FMFinance_product_details @"finance/product_details"  /// 商品详情
+
+// 账户
+
+
+
+//网络请求failure的提示
+#define FailureTipsString @"网络异常,请检查您的网络设置"
+#define SVProgressHUDShowSeviceError [SVProgressHUD showInfoWithStatus:FailureTipsString];
+//网络请求-1的提示
+#define MinusTipsString @"服务器异常,请稍后再试"
+#define SVProgressHUDShowNetWorkError [SVProgressHUD showInfoWithStatus:MinusTipsString];
+
+
+#define FMUserDefaults [NSUserDefaults standardUserDefaults]
+
+#import "UIImageView+WebCache.h"
+//#import "UtilsObject.h"
+//#import "FMHttpTool.h"
+#import "MEUtils.h"
+//#import "MJRefresh.h"
+//#import "MBProgressHUD.h"
+#import "UIView+Extension.h"
+#import "NSString+Format.h"
+//#import "UIImage+Extension.h"
+//#import "UILabel+Extension.h"
+//#import "NSObject+GetIP.h"
+//#import "MJExtension.h"
+//#import "TextViewPlaceholder.h"
+
+#import "NSDictionary+Utils.h"
+#import "Global.h"
+
+//#import <AFNetworking/AFNetworking.h>
+//#import "SVProgressHUD.h"
+//#import "Product.h"
+
+#endif
