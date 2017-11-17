@@ -11,9 +11,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 //#import "NSString+ThreeDES.h"
-@interface MEUtils : NSObject
-
-@end
+//@interface MEUtils : NSObject
+//
+//@end
 
 @interface UIButton (Utils)
 ///设按钮图片按钮
